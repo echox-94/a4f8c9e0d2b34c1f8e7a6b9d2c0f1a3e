@@ -1,0 +1,9 @@
+{
+  "name": "a4f8c9e0d2b34c1f8e7a6b9d2c0f1a3e-cache",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Static cache builder",
+  "scripts": {
+    "build": "node scripts/build-cache.js"
+  }
+}
