@@ -1,0 +1,19 @@
+name: Refresh All Cache Entries
+on:
+  workflow_dispatch:  # manual trigger
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install node-fetch
+      - name: Run refresh script
+        env:
+          # No secrets needed – uses public cache and Worker
+          NODE_OPTIONS: '--loader=esm'
+        run: node scripts/refresh-cache.js
