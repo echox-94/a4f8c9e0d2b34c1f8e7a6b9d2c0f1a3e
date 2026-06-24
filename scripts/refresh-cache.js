@@ -1,9 +1,7 @@
 // scripts/refresh-cache.js
-import fetch from 'node-fetch';
-
 const CACHE_URL = 'https://raw.githubusercontent.com/echox-94/a4f8c9e0d2b34c1f8e7a6b9d2c0f1a3e/main/cache.json';
 const WORKER_URL = 'https://a4f8c9e0d2b34c1f8e7a6b9d2c0f1a3e.app-pulse.workers.dev';
-const DELAY_MS = 2000; // 2 seconds between requests to avoid rate limiting (429)
+const DELAY_MS = 2000;
 
 async function refreshAll() {
   console.log('📥 Fetching current cache...');
@@ -17,7 +15,7 @@ async function refreshAll() {
   let failCount = 0;
 
   for (const key of entries) {
-    if (key.startsWith('lock_')) continue; // safety
+    if (key.startsWith('lock_')) continue;
 
     let tmdbId, season, episode;
     if (key.startsWith('movie_')) {
